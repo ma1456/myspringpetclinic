@@ -7,7 +7,7 @@ trigger:
 - develop
 
 pool:
-  vmImage: ubuntu-latest
+  vmImage: manojpool
 
 steps:
 - task: Maven@3
@@ -20,3 +20,7 @@ steps:
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package'
+    sonarQubeAnalysis: true
+    codeCoverageToolOption: jaCoCo
+    checkStyleRunAnalysis: true 
+    findBugsRunAnalysis: true
